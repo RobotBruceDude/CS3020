@@ -3,8 +3,18 @@
   <Class Name="bbeauli2Battleship.Gameboard">
     <Position X="2.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAACAAAACAgAAEAAACAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAACAwAAEAAAAAAAEAAACAAAAAAAAAAAIAA=</HashCode>
       <FileName>Gameboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="bbeauli2Battleship.Game">
+    <Position X="5.75" Y="1" Width="1.5" />
+    <Members>
+      <Method Name="Logic" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAQAAICQAAAAAAAA=</HashCode>
+      <FileName>Game.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
