@@ -9,6 +9,7 @@ namespace bbeauli2Battleship
     {
         char[,] _board = new char[10, 10];
         int[,] _shotResult = new int[10, 10];
+        bool _cheats = false;
 
         /// <summary>
         /// To initialize the values of the _shotResult.
@@ -56,7 +57,7 @@ namespace bbeauli2Battleship
 
 
         /// <summary>
-        /// Fill the board with a particular characters
+        /// Fill the board with a particular characters based on the answer board.  
         /// </summary>
         public void Fill()
         {
@@ -64,19 +65,27 @@ namespace bbeauli2Battleship
             {
                 for (int col = 0; col < _board.GetLength(1); col++)
                 {
+                    if (_cheats == true)
+                    {
+                        if (_shotResult[row, col] == 3) //If cheats are activated
+                            _board[row, col] = 'S';
+                    }
                     if (_shotResult[row, col] == 0) //If there is nothing set to that current square
                         _board[row, col] = '-';
                     if (_shotResult[row, col] == 1) //If the shot hits
                         _board[row, col] = 'O';
                     if (_shotResult[row, col] == 2) //If the shot misses
                         _board[row, col] = 'X';
-                    if (_shotResult[row, col] == 3) //If cheats are activated
-                        _board[row, col] = 'S';
                 }
             }
         }
 
-
+        /// <summary>
+        /// Stores the result of the input into the results 2d array
+        /// </summary>
+        /// <param name="a"> x coordinate </param>
+        /// <param name="b"> y coordinate </param>
+        /// <param name="result"> If the shot hit or missed. </param>
         public void StoreInput(int a, int b, int result)
         {
             _shotResult[a, b] = result;
