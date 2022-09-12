@@ -9,7 +9,7 @@ namespace bbeauli2Battleship
     {
         char[,] _board = new char[10, 10];
         int[,] _shotResult = new int[10, 10];
-        bool _cheats = false;
+        bool _cheats = true; //on rn for testing
 
         /// <summary>
         /// To initialize the values of the _shotResult.

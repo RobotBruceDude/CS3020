@@ -6,13 +6,8 @@
  */
 Game game = new Game();
 Random rng = new Random();
+Gameboard board = new Gameboard();
 //game.RunGame();
-List<int> location = new List<int>();
-int[] array = new int[] { };
-
-location.Add(5);
-
-array = location.ToArray();
-Console.Write($"{array.Length}");
+game.PlaceShip(); //Something in game.cs placing ships is not working properly!!!
 
 

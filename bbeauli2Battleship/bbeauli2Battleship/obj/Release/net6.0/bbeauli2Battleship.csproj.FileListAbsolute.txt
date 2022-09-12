@@ -1,0 +1,15 @@
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\bin\Release\net6.0\bbeauli2Battleship.exe
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\bin\Release\net6.0\bbeauli2Battleship.deps.json
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\bin\Release\net6.0\bbeauli2Battleship.runtimeconfig.json
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\bin\Release\net6.0\bbeauli2Battleship.dll
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\bin\Release\net6.0\bbeauli2Battleship.pdb
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.csproj.AssemblyReference.cache
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.AssemblyInfoInputs.cache
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.AssemblyInfo.cs
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.csproj.CoreCompileInputs.cache
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.dll
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\refint\bbeauli2Battleship.dll
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.pdb
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\bbeauli2Battleship.genruntimeconfig.cache
+C:\Users\beaul\Desktop\CS3020\bbeauli2Battleship\bbeauli2Battleship\obj\Release\net6.0\ref\bbeauli2Battleship.dll
