@@ -8,6 +8,9 @@ Game game = new Game();
 Random rng = new Random();
 Gameboard board = new Gameboard();
 //game.RunGame();
-game.PlaceShip(); //Something in game.cs placing ships is not working properly!!!
+board.Initialize();
+game.PlaceShip();
+
+
 
 

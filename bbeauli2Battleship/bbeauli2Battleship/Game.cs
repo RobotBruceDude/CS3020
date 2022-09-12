@@ -10,7 +10,31 @@ namespace bbeauli2Battleship
 {
     public class Game
     {
-        
+
+        ship Carrier = new()
+        {
+            name = "Carrier",
+            length = 5,
+            hits = 0
+        };
+        ship Battleship = new()
+        {
+            name = "Battleship",
+            length = 4,
+            hits = 0
+        };
+        ship Submarine1 = new()
+        {
+            name = "Submarine 1",
+            length = 3,
+            hits = 0
+        };
+        ship Submarine2 = new()
+        {
+            name = "Submarine 2",
+            length = 3,
+            hits = 0
+        };
         ship Destroyer1 = new()
         {
             name = "Destroyer 1",
@@ -31,8 +55,8 @@ namespace bbeauli2Battleship
         public void RunGame()
         {
             DisplayWelcomeMethod();
-            PlaceShip();
             board.Initialize();
+            PlaceShip();
             board.Draw();
             
 
@@ -47,36 +71,55 @@ namespace bbeauli2Battleship
 
         public void PlaceShip()
         {
-         
-
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 6; i++)
             {
-                int[] store = new int[] { }; //reset array after every use
+                Console.WriteLine();
+                int[] store = new int[] { };//reset array after every use
 
+                //switch statement of all all the ships
                 switch (i)
                 {
                     case 0:
-                        store = CheckCoords(Destroyer1.length);
-                        Destroyer1.coordinates.AddRange(store);
+                        store = CreateCoords(Carrier.length);
+                        Carrier.coordinates.AddRange(store);
                         break;
                     case 1:
-                        store = CheckCoords(Destroyer2.length);
+                        store = CreateCoords(Battleship.length);
+                        Battleship.coordinates.AddRange(store);
+                        break;
+                    case 2:
+                        store = CreateCoords(Submarine1.length);
+                        Submarine1.coordinates.AddRange(store);
+                        break;
+                    case 3:
+                        store = CreateCoords(Submarine2.length);
+                        Submarine2.coordinates.AddRange(store);
+                        break;
+                    case 4:
+                        store = CreateCoords(Destroyer1.length);
+                        Destroyer1.coordinates.AddRange(store);
+                        break;
+                    case 5:
+                        store = CreateCoords(Destroyer2.length);
                         Destroyer2.coordinates.AddRange(store);
                         break;
                 }
 
-                Console.WriteLine($"{Destroyer1.coordinates}        {Destroyer2.coordinates}");
-                
 
-
+                foreach (var value in store)
+                {
+                    int x, y;
+                    x = value % 10;
+                    y = value / 10;
+                    Console.WriteLine($"{x}, {y}");
+                    board.StoreInput(x, y, 3);
+                }
             }
-
-            
-            
+            board.Draw();
         }
 
         bool horizontal;
-        public int[] CheckCoords(int length) //this will create all values possible and check if it can fit
+        public int[] CreateCoords(int length) //this will create all values possible and check if it can fit
         {
             Random rng = new();
             List<int> location = new List<int>();
@@ -85,9 +128,11 @@ namespace bbeauli2Battleship
 
             do
             {
+                location.Clear();
                 int startPos, currentPos, direction, counter = 0;
                 
-                startPos = rng.Next(100);
+
+                startPos = rng.Next(99);
                 direction = rng.Next(4);
 
                 currentPos = startPos;
@@ -113,28 +158,29 @@ namespace bbeauli2Battleship
                         break;
                 }
 
+                //This will take all the possible positions and test if it is valid
                 for (int i = 0; i < length; i++)
-                {
+                {  
                     
                     if (i != 0) //anything but the current pos
                     {
                         currentPos += direction;
-                        current = isEqual(currentPos);
+                        current = isEqual(currentPos); //checks if it is equal to another coordinate
 
                         if (current == false && horizontal == true)
-                            current = notWithinRange(currentPos, range(startPos));
-
-                        location.Add(currentPos);
+                            current = notWithinRangeX(currentPos, range(startPos));
+                        if (current == false && horizontal == false)
+                            current = notWithinRangeY(currentPos);
                     }
                     
                     if (i == 0) //current position
                     {
                         current = isEqual(startPos);
-                        location.Add(startPos);
                     }
 
                     if (current == false) 
                     {
+                        location.Add(currentPos);
                         counter++;
                         current = true;
                     }
@@ -143,7 +189,7 @@ namespace bbeauli2Battleship
                 if (counter == length)
                     allowed = true;
                 
-            } while (allowed == true);
+            } while (allowed == false);
 
             return location.ToArray(); //if section is successful return the length in location
         }
@@ -157,14 +203,27 @@ namespace bbeauli2Battleship
         {
             int[] location = new int[] { };
 
-            for (int i = 0; i < 2; i++) //only 2 for testing
+            for (int i = 0; i < 6; i++) //only 2 for testing
             {
+                //fun switch statements of all possible coords to pull from
                 switch (i)
                 {
                     case 0:
-                        location = Destroyer1.coordinates.ToArray();
+                        location = Carrier.coordinates.ToArray();
                         break;
                     case 1:
+                        location = Battleship.coordinates.ToArray();
+                        break;
+                    case 2:
+                        location = Submarine1.coordinates.ToArray();
+                        break;
+                    case 3:
+                        location = Submarine2.coordinates.ToArray();
+                        break;
+                    case 4:
+                        location = Destroyer1.coordinates.ToArray();
+                        break;
+                    case 5:
                         location = Destroyer2.coordinates.ToArray();
                         break;
                 }
@@ -189,7 +248,7 @@ namespace bbeauli2Battleship
         /// <param name="input"> the input given </param>
         /// <param name="actualRange"> the range that the bow of the ship starts from belongs to </param>
         /// <returns> True if it is not valid, and False if it is valid </returns>
-        public bool notWithinRange(int input, int actualRange)
+        public bool notWithinRangeX(int input, int actualRange)
         {
             bool result = true;
             int inputRange = range(input);
@@ -197,9 +256,19 @@ namespace bbeauli2Battleship
             if (input > 0) // test to see if the value is not negative
                 if (inputRange == actualRange) //test to see if it is within the proper range
                     result = false;
-                
                 else
                     result = true;
+
+            return result;
+        }
+
+        public bool notWithinRangeY(int input)
+        {
+            bool result = true;
+            if (range(input) > 0)
+                result = false;
+            else
+                result = true;
 
             return result;
         }
@@ -211,7 +280,8 @@ namespace bbeauli2Battleship
         /// <returns> returns a value 0-9 based on the values range </returns>
         public int range(int value)
         {
-            int intRange = 0;
+
+            int intRange = -1; //default value of range
 
             if (value > 0 && value <= 10)
                 intRange = 0;
