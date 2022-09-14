@@ -9,7 +9,7 @@ namespace bbeauli2Battleship
     {
         public string name = "";
         public int length;
-        public int hits;
+        public int hits = 0;
         public List<int> coordinates = new List<int>();
     }
 }

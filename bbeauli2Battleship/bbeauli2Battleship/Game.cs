@@ -10,7 +10,7 @@ namespace bbeauli2Battleship
 {
     public class Game
     {
-
+        List<ship> ships = new List<ship>(); //redo this to work better. Make the ships a funct. and put into the list
         ship Carrier = new()
         {
             name = "Carrier",
@@ -58,9 +58,8 @@ namespace bbeauli2Battleship
             board.Initialize();
             PlaceShip();
             board.Draw();
-            
 
-
+            //ships.Exists(x => x.coordinates == 0);
         }
 
         private void DisplayWelcomeMethod()
@@ -109,8 +108,8 @@ namespace bbeauli2Battleship
                 foreach (var value in store)
                 {
                     int x, y;
-                    x = value % 10;
-                    y = value / 10;
+                    x = (value % 10);
+                    y = (value / 10); 
                     Console.WriteLine($"{x}, {y}");
                     board.StoreInput(x, y, 3);
                 }
@@ -283,30 +282,40 @@ namespace bbeauli2Battleship
 
             int intRange = -1; //default value of range
 
-            if (value > 0 && value <= 10)
+            if (value > 0 && value <= 9)
                 intRange = 0;
-            if (value > 10 && value <= 20)
+            if (value > 9 && value <= 19)
                 intRange = 1;
-            if (value > 20 && value <= 30)
+            if (value > 19 && value <= 29)
                 intRange = 2;
-            if (value > 30 && value <= 40)
+            if (value > 29 && value <= 39)
                 intRange = 3;
-            if (value > 40 && value <= 50)
+            if (value > 39 && value <= 49)
                 intRange = 4;
-            if (value > 50 && value <= 60)
+            if (value > 49 && value <= 59)
                 intRange = 5;
-            if (value > 60 && value <= 70)
+            if (value > 59 && value <= 69)
                 intRange = 6;
-            if (value > 70 && value <= 80)
+            if (value > 69 && value <= 79)
                 intRange = 7;
-            if (value > 80 && value <= 90)
+            if (value > 79 && value <= 89)
                 intRange = 8;
-            if (value > 90 && value <= 100)
+            if (value > 89 && value <= 99)
                 intRange = 9;
 
             return intRange;
         }
 
+
+        public void clear()
+        {
+            Carrier.coordinates.Clear();
+            Battleship.coordinates.Clear();
+            Submarine1.coordinates.Clear();
+            Submarine2.coordinates.Clear();
+            Destroyer1.coordinates.Clear();
+            Destroyer2.coordinates.Clear();
+        }
         public void Input()
         {
 
